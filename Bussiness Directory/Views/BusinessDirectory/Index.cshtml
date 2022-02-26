@@ -4,55 +4,98 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<style>
+    body {
+        background-color: #dbdbdb;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Bussname)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.location)
-        </th>
+    .active {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        width: 60%;
+        padding: 3%;
+        margin-left: 20%;
+        margin-right: 20%;
+    }
 
-        <th>
-            @Html.DisplayNameFor(model => model.BussPhoneNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Busslogo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.discription)
-        </th>
-        <th></th>
-    </tr>
+    tr {
+        padding-left: 55%;
+        margin-bottom: 5em;
+        font-size: 20px;
+    }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Bussname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.location)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BussPhoneNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Busslogo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.discription)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.bussinessId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.bussinessId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.bussinessId })
-        </td>
-    </tr>
-}
+    input[type=submit] {
+        background-color: #04AA6D;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 10px 18px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
 
-</table>
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+    .btn-link {
+        font-size: 18px;
+    }
+</style>
+
+<body>
+    <h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th class="active">
+                @Html.DisplayNameFor(model => model.Bussname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.location)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.BussPhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Busslogo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.discription)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Bussname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BussPhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Busslogo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.discription)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.bussinessId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.bussinessId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.bussinessId })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
