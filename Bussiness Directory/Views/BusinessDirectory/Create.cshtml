@@ -1,0 +1,227 @@
+﻿@model Bussiness_Directory.Models.Bussiness
+
+@{
+    ViewBag.Title = "Business Information Form";
+}
+
+
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+    <style>
+        body {
+            background-color: #dbdbdb;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .active {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            width: 60%;
+            padding: 3%;
+            margin-left: 20%;
+            margin-right: 20%;
+        }
+
+        tr {
+            padding-left: 55%;
+            margin-bottom: 5em;
+            font-size: 20px;
+        }
+
+        input[type=submit] {
+            background-color: #04AA6D;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px 18px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+            input[type=submit]:hover {
+                background-color: #45a049;
+            }
+
+        .btn-link {
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body style="padding:15px;">
+
+    @using (Html.BeginForm("Create", "BusinessDirectory", FormMethod.Post, new
+    { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <hr />
+        <h2> Create Page </h2>
+
+        <hr />
+        <div class="active">
+            <h3 style="text-align:center">
+                Add New Business
+            </h3>
+            <br />
+            <table class="table">
+
+                <tr>
+                    <td>
+                        @Html.LabelFor(k => k.bussinessId)
+
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(k => k.bussinessId)
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        @Html.LabelFor(k => k.Bussname)
+
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(k => k.Bussname)
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        @Html.LabelFor(k => k.Busslogo) &nbsp;&nbsp;
+                    </td>
+                    <td>
+                        <input type="file" name="UploadFile" accept="images/*" required />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        @Html.LabelFor(k => k.location)
+
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(k => k.location)
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        @Html.LabelFor(k => k.BussPhoneNumber)
+
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(k => k.BussPhoneNumber)
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        @Html.LabelFor(k => k.discription)
+
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(k => k.discription)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" name="submit" value="Submit" />
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+    }
+
+    <br />
+    <div class="btn-link">
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>
+@*@model Bussiness_Directory.Models.Bussiness
+
+    @{
+        ViewBag.Title = "Create";
+    }
+
+    <h2>Create</h2>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Bussiness</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.bussinessId, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.bussinessId, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.bussinessId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Bussname, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Bussname, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Bussname, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.location, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.location, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.location, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.BussPhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.BussPhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.BussPhoneNumber, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Busslogo, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Busslogo, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Busslogo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.discription, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.discription, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.discription, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@

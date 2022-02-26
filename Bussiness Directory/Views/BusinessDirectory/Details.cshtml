@@ -1,0 +1,80 @@
+﻿@model Bussiness_Directory.Models.Bussiness
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Index</title>
+    <style>
+        body {
+            background-color: rgba(0, 0, 0, 0.19);
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            border-style: dotted dashed solid double;
+            font-size: 190%;
+        }
+
+        .active {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            width: 60%;
+            padding: 3%;
+            margin-left: 20%;
+            margin-right: 20%;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h4 style="color:blue;">Bussiness</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Busslogo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Busslogo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bussname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bussname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BussPhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BussPhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.discription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.discription)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.bussinessId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+    </body>

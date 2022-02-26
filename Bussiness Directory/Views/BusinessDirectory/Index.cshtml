@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Bussiness_Directory.Models.Bussiness>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Bussname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.location)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.BussPhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Busslogo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.discription)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bussname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BussPhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Busslogo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.discription)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.bussinessId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.bussinessId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.bussinessId })
+        </td>
+    </tr>
+}
+
+</table>
